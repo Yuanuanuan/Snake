@@ -31,13 +31,41 @@ snake[3] = {
   y: 0,
 }
 
-for (let i = 0; i < snake.length; i++) {
-  if (i === 0) {
-    ctx.fillStyle = 'lightgreen';
-  } else {
-    ctx.fillStyle = 'lightblue';
+let d = 'right';
+
+const draw = () => {
+  console.log('hello')
+  for (let i = 0; i < snake.length; i++) {
+    if (i === 0) {
+      ctx.fillStyle = '#d2a9a3';
+    } else {
+      ctx.fillStyle = '#cfe6ed';
+    }
+    ctx.strokeStyle = 'white';
+    ctx.fillRect(snake[i].X, snake[i].y, unit, unit);
+    ctx.strokeRect(snake[i].X, snake[i].y, unit, unit);
   }
-  ctx.strokeStyle = 'white';
-  ctx.fillRect(snake[i].X, snake[i].y, unit, unit);
-  ctx.strokeRect(snake[i].X, snake[i].y, unit, unit);
+
+  let snakeX = snake[0].x;
+  let snakeY = snake[0].y;
+  if (d === 'left') {
+    snakeX -= unit;
+  } else if (d === 'up') {
+    snakeY -= unit;
+  } else if (d === 'right') {
+    snakeX += unit;
+  } else if (d === 'down') {
+    snakeY += unit;
+  }
+
+  let newHead = {
+    x: snakeX,
+    y: snakeY,
+  }
+
+  snake.pop();
+
+  snake.unshift(newHead);
 }
+
+let myGame = setInterval(draw, 100);
