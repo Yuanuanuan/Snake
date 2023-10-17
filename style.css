@@ -13,23 +13,76 @@ body {
 }
 
 #myCanvas {
-  border: 5px solid #445678;
+  border: 5px solid #542a71;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 #myScore, #myScore2 {
-  margin-top: 1rem;
-  color: #f5f6f7;
-  font-size: 1.5rem;
+  margin-top: 2rem;
+  color: #aaa;
+  font-size: 3rem;
+  letter-spacing: 2px;
   padding: 10px;
+  font-family: 'Alumni Sans Collegiate One', sans-serif;
+}
+#myScore {
+  font-size: 2.5rem;
 }
 
 #start {
-  padding: 0.25rem .5rem;
-  background-color: #c9c9c9;
+  margin-top: 2rem;
+  padding: 1rem 1rem;
+  background-color: transparent;
   font-size: 1.15rem;
+  font-family: 'Poppins', sans-serif;
   display: block;
+  border: 2px solid #d9d9d9;
+  color: #d9d9d9;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+#start::after {
+  content: '';
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: rgb(81, 108, 182);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+#start:hover::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.game-over {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transform-origin: center;
+  opacity: 0;
+  border-radius: 24px;
+  background-color: #ffffff30;
+  backdrop-filter: blur(10px);
+  transition: transform .5s ease, opacity .5s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #d9d9d9;
+  font-size: 1.5rem;
 }

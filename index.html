@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./favicon.svg">
   <title>Snake Game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -11,13 +15,17 @@
   id="myCanvas" 
   width="320" 
   height="320" 
-  style="background-color: black"
+  style="background-color: #222"
   >
 
   </canvas>
-  <p id="myScore">Score</p>
-  <p id="myScore2">Hight Score</p>
-  <button type="button" id="start" onclick="window.location.reload()">Start New Game</button>
+  <p id="myScore2"></p>
+  <p id="myScore"></p>
+
+  <div class="game-over">
+    <h1>Game Over</h1>
+    <button type="button" id="start" onclick="window.location.reload()">Start New Game</button>
+  </div>
   
   <script src="app.js"></script>
 </body>
